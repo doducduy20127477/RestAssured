@@ -1,5 +1,6 @@
 package com.rest;
 
+import io.restassured.config.LogConfig;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -7,6 +8,8 @@ import org.testng.annotations.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 import static io.restassured.RestAssured.*;
 import static io.restassured.matcher.RestAssuredMatchers.*;
@@ -84,6 +87,67 @@ public class AutomateGet {
                         "workspaces[0]", hasEntry("id", "2c453a92-3b4d-4f6e-8946-74f259357181"),
                         "workspaces[0]", not(equalTo(Collections.EMPTY_MAP)),
                         "workspaces[0].name", allOf(startsWith("My"), containsString("Workspace"))
-                        );
+                );
+    }
+
+    @org.testng.annotations.Test
+    public void request_response_logging() {
+        given().
+                baseUri("https://api.postman.com").
+                header("x-api-key", "PMAK-65c09590f839c300013706f2-6a63306d868a798ec0524e4c96a7826f16").
+                log().all().
+
+        when().
+                get("/workspaces").
+        then().
+                log().all(). // failure assertion, not print response body
+                assertThat().
+                statusCode(200);
+    }
+
+    @org.testng.annotations.Test
+    public void log_only_if_error() {
+        given().
+                baseUri("https://api.postman.com").
+                header("x-api-key", "PMAK-65c09590f839c300013706f2-6a63306d868a798ec0524e4c96a7826f16").
+                log().all().
+
+        when().
+                get("/workspaces").
+        then().
+                log().ifError().
+                assertThat().
+                statusCode(200);
+    }
+    @org.testng.annotations.Test
+    public void log_only_if_validation_fails() {
+        given().
+                baseUri("https://api.postman.com").
+                header("x-api-key", "PMAK-65c09590f839c300013706f2-6a63306d868a798ec0524e4c96a7826f16").
+                config(config.logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails())).
+//                log().ifValidationFails().
+        when().
+                get("/workspaces").
+        then().
+//                log().ifValidationFails().
+                assertThat().
+                statusCode(201);
+    }
+    @org.testng.annotations.Test
+    public void logs_blacklist_header() {
+        Set<String> headers = new HashSet<String>();
+        headers.add("x-api-key");
+        headers.add("Accept");
+
+        given().
+                baseUri("https://api.postman.com").
+                header("x-api-key", "PMAK-65c09590f839c300013706f2-6a63306d868a798ec0524e4c96a7826f16").
+                config(config.logConfig(LogConfig.logConfig().blacklistHeaders(headers))).
+                log().all().
+        when().
+                get("/workspaces").
+        then().
+                assertThat().
+                statusCode(200);
     }
 }
