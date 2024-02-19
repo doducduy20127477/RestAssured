@@ -21,6 +21,10 @@
    - Query Request Specification
 5. Response Specification  
    ```ResponseSpecificationExample.java```: The same with   Request Specification
+6. Automate POST, PUT and DELETE  
+```AutomatePost.java```
+```AutomatePut.java```
+```AutomateDelete.java```
 ### Install and Config:  
 ### Technical and Tools:
 1. Tech stack and tools:
