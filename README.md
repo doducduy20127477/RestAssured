@@ -15,6 +15,10 @@
     - Multiple Headers
     - Extract Response Headers
 4. Request Specification  
+   ```RequestSpecificationExample.java```:
+   - BDD to non-BDD
+   - Request Specification Builder
+   - Query Request Specification
 ### Install and Config:  
 ### Technical and Tools:
 1. Tech stack and tools:
