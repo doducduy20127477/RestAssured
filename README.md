@@ -19,6 +19,8 @@
    - BDD to non-BDD
    - Request Specification Builder
    - Query Request Specification
+5. Response Specification  
+   ```ResponseSpecificationExample.java```: The same with   Request Specification
 ### Install and Config:  
 ### Technical and Tools:
 1. Tech stack and tools:
