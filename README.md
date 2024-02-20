@@ -25,6 +25,10 @@
 ```AutomatePost.java```
 ```AutomatePut.java```
 ```AutomateDelete.java```
+7. Send Request Payload Multiple Ways  
+```AutomatePost.java```: Send as a file  
+```RequestPayloadAsJsonArray.java```: Send JSON Array as a List **(charset UTF-8)**
+
 ### Install and Config:  
 ### Technical and Tools:
 1. Tech stack and tools:

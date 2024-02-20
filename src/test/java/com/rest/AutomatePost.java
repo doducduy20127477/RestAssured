@@ -9,6 +9,10 @@ import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+import java.io.File;
+import java.util.HashMap;
+import java.util.Objects;
+
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.matchesPattern;
@@ -70,5 +74,36 @@ public class AutomatePost {
         assertThat(response.path("workspace.id"), matchesPattern("^[a-z0-9-]{36}$"));
 
     }
+    @org.testng.annotations.Test
+    public void validate_post_request_payload_from_file() {
+        File file = new File("src/main/resources/CreateWorkspacePayload.json");
+        given().
+                body(file).
+        when().
+                post("/workspaces").
+        then().
+                assertThat().
+                body("workspace.name", equalTo("mySecondWorkspace"),
+                        "workspace.id", matchesPattern("^[a-z0-9-]{36}$"));
+    }
+    @org.testng.annotations.Test
+    public void validate_post_request_payload_as_map() {
+        HashMap<String, Object> mainObject = new HashMap<String, Object>();
 
+        HashMap<String, String> nestedObject = new HashMap<>();
+        nestedObject.put("name", "myThirdWorkspace");
+        nestedObject.put("type", "personal");
+        nestedObject.put("description", "Rest Assured created this");
+
+        mainObject.put("workspace", nestedObject);
+
+        given().
+                body(mainObject).
+        when().
+                post("/workspaces").
+        then().
+                assertThat().
+                body("workspace.name", equalTo("myThirdWorkspace"),
+                        "workspace.id", matchesPattern("^[a-z0-9-]{36}$"));
+    }
 }
