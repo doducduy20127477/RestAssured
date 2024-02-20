@@ -30,10 +30,11 @@
 ```AutomatePost.java```: Send as a file  
 ```RequestPayloadAsJsonArray.java```: Send JSON Array as a List **(charset UTF-8)**
 8. Send Complex JSON as Request Payload ```RequestPayloadComplexJson.java```
-9. Handling Request Parameters  
+9. Handling Request Parameters & Multipart Form Data  
 ```RequestParameters.java```
    - Single/Multiple Query Parameters
    - Path Parameter
+   - Multipart Form Data
 
 ### Install and Config:  
 ### Technical and Tools:

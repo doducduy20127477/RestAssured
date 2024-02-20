@@ -64,5 +64,19 @@ public class RequestParameters {
                 assertThat().
                 statusCode(200);
     }
+    @Test
+    public void multipart_form_data() {
+        given().
+                baseUri("https://postman-echo.com").
+                multiPart("foo1", "bar1").
+                multiPart("foo2", "bar2").
+                log().all().
+        when().
+                post("/post").
+        then().
+                log().all().
+                assertThat().
+                statusCode(200);
+    }
 
 }
