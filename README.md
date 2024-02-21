@@ -35,6 +35,7 @@
    - Single/Multiple Query Parameters
    - Path Parameter
    - Multipart Form Data
+   - Form URL Encoding
 10. File Upload and Download  
  ```UploadFile.java```
  ```UploadFile.java```
