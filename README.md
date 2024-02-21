@@ -41,7 +41,9 @@
  ```UploadFile.java```
 11. JSON Schema Validation  
 **```DEPENDENCY: json-schema-validator```**  
- ```JsonSchemaValidation.java```  
+ ```JsonSchemaValidation.java```: delete dynamic variable in ```EchoGet.json``` **(id, example)**
+12. Filters  
+```Filters.java```: Log Request/Response Specification to file
 
 ### Install and Config:  
 ### Technical and Tools:

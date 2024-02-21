@@ -1,0 +1,24 @@
+Body:			<none>
+HTTP/1.1 200 OK
+Date: Wed, 21 Feb 2024 07:42:50 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 360
+Connection: keep-alive
+ETag: W/"168-M4MStyWRdmwztch2KcG/xQshHxI"
+set-cookie: sails.sid=s%3AzbZ9b1xocxJTkT9d1RSXly7YHSlmr-Xe.If%2FE5LsammHmMoEgZjop2xtJAU567JqRz%2BZX6NudIBs; Path=/; HttpOnly
+
+{
+    "args": {
+        
+    },
+    "headers": {
+        "x-forwarded-proto": "https",
+        "x-forwarded-port": "443",
+        "host": "postman-echo.com",
+        "x-amzn-trace-id": "Root=1-65d5a97a-60aa51020b96af794c4fec90",
+        "accept": "*/*",
+        "user-agent": "Apache-HttpClient/4.5.13 (Java/17.0.6)",
+        "accept-encoding": "gzip,deflate"
+    },
+    "url": "https://postman-echo.com/get"
+}
