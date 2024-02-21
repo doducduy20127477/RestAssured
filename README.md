@@ -39,6 +39,9 @@
 10. File Upload and Download  
  ```UploadFile.java```
  ```UploadFile.java```
+11. JSON Schema Validation  
+**```DEPENDENCY: json-schema-validator```**  
+ ```JsonSchemaValidation.java```  
 
 ### Install and Config:  
 ### Technical and Tools:
