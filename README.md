@@ -35,6 +35,9 @@
    - Single/Multiple Query Parameters
    - Path Parameter
    - Multipart Form Data
+10. File Upload and Download  
+ ```UploadFile.java```
+ ```UploadFile.java```
 
 ### Install and Config:  
 ### Technical and Tools:
