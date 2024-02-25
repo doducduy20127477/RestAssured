@@ -49,14 +49,20 @@
     ```JsonSchemaValidation.java```: delete dynamic variable in ```EchoGet.json``` **(id, example)**
 12. Filters  
     ```Filters.java```: Log Request/Response Specification to file
-13. Serialization and Deserialization: use **```jackson.databind.ObjectMapper```**
+13. Serialization and Deserialization & Jackson Annotations: use **```jackson.databind.ObjectMapper```**  
     ```JsonAPI_JSONObject.java``` ```JsonAPI_JSONArray.java```:   
     - Familiar with Jackson library explicitly
     - Jackson Object/Array Node      
 
     ```SimplePojoTest.java```: Serialize and Deserialize  
-    ```WorkspacePojoTest.java```: Parameterize Tests using **```@DataProvider```**
 
+    ```WorkspacePojoTest.java```: 
+    - Parameterize Tests using **```@DataProvider```**  
+    -  **```@JsonInclude(JsonInclude.Include.NON_DEFAULT)```**: ignore default value   
+       **```@JsonInclude(JsonInclude.Include.NON_EMPTY)```**: ignore empty HashMap, List...  
+       **```@JsonIgnore```**: ignore field both serialization and deserialization  
+       **```@JsonIgnoreProperties(value = {"id","i"}, allowSetters = true)```**: ignore property but allow when deserialization   
+    
 ### Technical and Tools:
 1. Tech stack and tools:
 * Rest Assured
